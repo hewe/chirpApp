@@ -1,3 +1,5 @@
+/*jslint node: true*/
+'use strict';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,6 +9,13 @@ var session = require('express-session');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+// Initialize the passport with the configuration in passport-init.js
+// since passport-init.js is exposed as a function via the 
+// modules.export = function(passport){..}, so here we use it
+// like a function call aliased via passportInit().
+var passportInit = require('./passport-init.js');
+passportInit(passport);
 
 //var routes = require('./routes/index');
 var api = require('./routes/api');
