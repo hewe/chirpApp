@@ -3,9 +3,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 var users = {};
-
 module.exports = function(passport) {
-    
     // serialize the user session into the passport session store
     // here we are serializing a user session instance with just the
     // user name to make session store small
@@ -49,7 +47,7 @@ module.exports = function(passport) {
             }
 
             console.log('successfuly signed in');
-            return done(null, true);
+            return done(null, users[username]);
         }
     ));
 
@@ -58,7 +56,7 @@ module.exports = function(passport) {
     };
 
     var isValidPassword = function(user, password) {
-        return bCrypt.compareSync(user.password, password);
+        return bCrypt.compareSync(password, user.password);
     };
 
 };
