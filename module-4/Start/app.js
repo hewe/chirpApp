@@ -1,3 +1,5 @@
+/*jslint node: true*/
+'use strict';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,9 +8,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://<USERNAME>:<PASSWORD>@ds031862.mongolab.com:31862/chirpapp');
+require('./models/models.js');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
-
 var app = express();
 
 // view engine setup

@@ -3,7 +3,7 @@
 		"JavaScript": {
 	    "javascriptExtraPaths":["/home/weiping/.config/sublime-text-3/Packages/SublimeCodeIntel/libs/codeintel2/lib_srcs/node.js"],
 	    "codeintel_scan_files_in_project": true,
-	    "codeintel_max_recursive_dir_depth": 2
+	    "codeintel_max_recursive_dir_depth": 10
 	  }
 	}
 }
